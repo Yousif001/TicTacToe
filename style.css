@@ -83,6 +83,7 @@
   .board.x .cell:not(.x):not(.circle):hover::after,
   .board.circle .cell:not(.x):not(.circle):hover::before {
     background-color: grey;
+    animation: fadeIn2 2.5s;
   }
   
   .cell.x::before,
@@ -171,3 +172,7 @@
     to {background-color: white;}
   }
   
+  @keyframes fadeIn2 { /* Define the "fadeIn" keyframes animation */
+    from {background-color: black;}
+    to {background-color: grey;}
+  }
