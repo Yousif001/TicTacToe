@@ -95,6 +95,6 @@ function checkWin(currentClass) {
 
 function displayTurn(circleTurn)
 {
-   return turnMessage.innerText = `it's ${circleTurn ? "O's" : "X's" } Turn`
+   return turnMessage.innerText = `It's ${circleTurn ? "O's" : "X's" } Turn`
 
 }
