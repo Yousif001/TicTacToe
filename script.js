@@ -13,11 +13,15 @@ const WINNING_COMBINATIONS = [
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
+const turnMessage = document.querySelector('[turn-message]');
 const restartButton = document.getElementById('restartButton')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 let circleTurn
 
 startGame()
+
+displayTurn(false)
+
 
 restartButton.addEventListener('click', startGame)
 
@@ -68,6 +72,7 @@ function placeMark(cell, currentClass) {
 
 function swapTurns() {
   circleTurn = !circleTurn
+  displayTurn(circleTurn)
 }
 
 function setBoardHoverClass() {
@@ -86,4 +91,10 @@ function checkWin(currentClass) {
       return cellElements[index].classList.contains(currentClass)
     })
   })
+}
+
+function displayTurn(circleTurn)
+{
+   return turnMessage.innerText = `it's ${circleTurn ? "O's" : "X's" } Turn`
+
 }
