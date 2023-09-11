@@ -172,7 +172,6 @@
   {
     animation: xAfter 0.35s;
   }
-  
 
   .board.circle .cell:not(.x):not(.circle):hover::before
   { 
