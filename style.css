@@ -79,13 +79,13 @@
   .cell.x::after,
   .cell.circle::before {
     background-color: white;
+    animation: Click .4s;
   }
   
   .board.x .cell:not(.x):not(.circle):hover::before,
   .board.x .cell:not(.x):not(.circle):hover::after,
   .board.circle .cell:not(.x):not(.circle):hover::before {
     background-color: grey;
-    animation: fadeIn2 2.5s;
   }
   
   .cell.x::before,
@@ -163,18 +163,70 @@
     display: flex;
   }
 
-  .cell.x::before,
-  .cell.x::after,
-  .cell.circle::before{
-    animation: fadeIn 2s; /* Use "animation" instead of "transition" */
+  .board.x .cell:not(.x):not(.circle):hover::before
+  {
+    animation: xBefore .35s;
+  }
+ 
+  .board.x .cell:not(.x):not(.circle):hover::after
+  {
+    animation: xAfter 0.35s;
   }
   
-  @keyframes fadeIn { /* Define the "fadeIn" keyframes animation */
-    from {background-color: grey;}
+
+  .board.circle .cell:not(.x):not(.circle):hover::before
+  { 
+    animation: circleBefore .35s;
+
+  }
+  .board.circle .cell:not(.x):not(.circle):hover::after
+  {
+    animation: circleAfter .35s;
+  }
+
+  @keyframes xAfter { 
+    from { 
+    background-color: black;
+    transform: scale(0) rotate(85deg);} 
+    to { 
+    background-color: grey;
+    transform: scale(1) rotate(-45deg);}
+  }
+  
+  @keyframes xBefore { 
+    from { 
+    background-color: black;
+    transform: scale(0) rotate(175deg);} 
+    to { 
+    background-color: grey;
+    transform: scale(1) rotate(45deg);}
+  }
+
+  @keyframes circleAnimation { 
+    0% {
+      transform: rotateY(90deg) skew(-0.01turn);
+    }
+    100% {
+      transform: rotateY(0deg);}
+  }
+
+  @keyframes circleBefore { 
+    0% {background-color: black;
+      transform: scale(0)skew(-0.01turn,90deg);
+    }
+    100% {background-color: grey;
+      transform: scale(1) ;}
+  }
+  @keyframes circleAfter { 
+    0% {
+      transform: scale(0) skew(-0.01turn,90deg);
+    }
+    100% {
+      transform: scale(1) ;}
+  }
+
+  @keyframes Click { 
+    from {background-color: grey;} 
     to {background-color: white;}
   }
   
-  @keyframes fadeIn2 { /* Define the "fadeIn" keyframes animation */
-    from {background-color: black;}
-    to {background-color: grey;}
-  }
